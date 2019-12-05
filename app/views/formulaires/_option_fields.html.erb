@@ -1,0 +1,7 @@
+<fieldset class= "option_field_set">
+    <%= f.hidden_field :question_id%>
+    <%= f.label :title  , "Option"%><br/>
+    <%= f.text_field :title , placeholder: "Option..." %>
+    <%= f.hidden_field :_destroy%>
+    <%= link_to "Remove",  "#", class: "remove_fields remove_option"%>
+</fieldset>

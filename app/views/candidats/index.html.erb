@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Candidats</h1>
+
+<table>
+  <thead>
+  </thead>
+
+  <tbody>
+    <% @candidats.each do |candidat| %>
+      <tr>
+        <td style="font-weight: bold;"> <%= candidat.formulaire.title %> </td>
+        <td><%= candidat.responses.first[1] %></td>
+        <td><%= link_to 'Show', candidat %></td>
+        <td><%= link_to 'Edit', edit_candidat_path(candidat) %></td>
+        <td><%= link_to 'Destroy', candidat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Candidat', formulaires_path %>

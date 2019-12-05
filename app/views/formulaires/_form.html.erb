@@ -1,0 +1,27 @@
+<%= form_with(model: formulaire, local: true) do |f| %>
+  <% if formulaire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(formulaire.errors.count, "error") %> prohibited this formulaire from being saved:</h2>
+
+      <ul>
+      <% formulaire.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <%= f.fields_for :questions do |builder|%>
+    <%= render 'question_fields' , f: builder %>
+  <% end %><br/>
+  <%= link_to_add_fields "Add Question" , f, :questions%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

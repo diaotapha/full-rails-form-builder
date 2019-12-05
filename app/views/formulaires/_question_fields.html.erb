@@ -1,0 +1,37 @@
+<fieldset>
+    <div class="group">
+    <%= f.select :type_field , Question::TYPE_FIELDS.collect{ |type_field| [type_field[:key] , type_field[:value]]}  , {include_blank: "choisir le type"} ,{ class: "choose_type" }%> 
+    <%= f.hidden_field :formulaire_id%>
+    <%= f.text_field :title ,placeholder: "Question..." , class: "text_elem"%><br/><br/>
+    
+    <%= f.hidden_field :_destroy%>
+    <%= link_to "Remove Question",  "#", class: "remove_fields"%>
+    </div>
+    
+    <%= f.fields_for :options  do |builder|%>
+        <%= render 'option_fields' , f: builder%>
+    <% end %><br/><br/>
+    <span class="button_add_option" style="display: none;">
+    <%= link_to_add_fields "Add Option" , f, :options%>
+    </span>
+
+</fieldset>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".choose_type").on("change", function(){
+            if( $(this).val() === "select" || $(this).val() === "check_box"  || $(this).val() === "radio_button" ){
+                $(this).closest('fieldset').find('.button_add_option').show();
+            }else{
+                $(this).closest('fieldset').find('.button_add_option').hide();
+            }
+        });
+        
+        $(".choose_type").each(function(){
+            if( $(this).val() === "select" || $(this).val() === "check_box" || $(this).val() === "radio_button" ){
+                $(this).closest('fieldset').find('.button_add_option').show();
+            }
+        });
+    });
+</script>
+

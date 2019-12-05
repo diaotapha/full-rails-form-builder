@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Formulaire:</strong>
+  <%= @candidat.formulaire.title %>
+</p>
+
+<p>
+  <strong>Candidat: <%= @candidat.id%> </strong>
+</p>
+
+
+<% if @candidat.responses.present?%>
+  <% @candidat.responses.each do |key , value|%>
+      <p>
+        <strong><%= key.humanize %>:</strong>
+        <%= value %>
+      </p>
+  <%end%>
+<%end%>
+
+
+
+<%= link_to 'Edit', edit_candidat_path(@candidat) %> |
+<%= link_to 'Back', candidats_path %>

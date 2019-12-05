@@ -1,0 +1,4 @@
+<div class="field">
+    <%= f.label field.title%>
+    <%= f.select field.title , field.options.collect{ |op| [op.title , op.title]}  , {include_blank: "choisir..."} ,{ class: "choose_type" }%>
+</div>

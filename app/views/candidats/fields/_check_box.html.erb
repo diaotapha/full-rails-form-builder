@@ -1,0 +1,6 @@
+<% field.options.each do |option|%>
+    <div class="field" style="display:flex;">
+        <%= f.check_box field.title, {multiple: true , id: "option_#{option.title}"}, option.title , nil%>
+        <label for="option_<%= option.title %>"> <%= option.title%></label>
+    </div>
+<%end%>

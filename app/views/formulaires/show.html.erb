@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @formulaire.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @formulaire.description %>
+</p>
+
+<%= link_to 'Edit', edit_formulaire_path(@formulaire) %> |
+<%= link_to 'Back', formulaires_path %>

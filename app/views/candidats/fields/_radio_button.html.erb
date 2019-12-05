@@ -1,0 +1,12 @@
+<br/><br/><%= f.label field.title%>
+<div style="display:inline;">
+<% field.options.each do |option|%>
+    <div class="field" style="display:flex;">
+        <%= f.radio_button field.title , option.title , id: option.id%>
+        <label for="<%= option.id%>"> <%= option.title %> </label>
+    </div>
+<%end%>
+</div>
+
+
+            
